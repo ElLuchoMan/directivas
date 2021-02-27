@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   ]
 })
 export class AgregarComponent implements OnInit {
-  texto1: string = 'Alejandro Torres';
+  texto1: string = 'Alejandro Luis';
   color: string = 'red';
   miFormulario: FormGroup = this.fb.group({
     nombre: ['', Validators.required]
@@ -18,9 +18,7 @@ export class AgregarComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.cambiarColor();
-    this.cambiarNombre();
-  }
+    }
   tieneError(campo: string): boolean {
     return this.miFormulario.get(campo)?.invalid || false;
 
