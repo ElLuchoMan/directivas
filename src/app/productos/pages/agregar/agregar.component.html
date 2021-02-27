@@ -9,7 +9,7 @@
             <input formControlName="nombre" class="form-control">
         </div>
         <div class="col-auto">
-            <span error-msg [mensaje]="texto1" [color]="color" *ngIf="tieneError('nombre')">
+            <span error-msg [mensaje]="texto1" [color]="color" [valido]="!tieneError('nombre')">
             </span>
         </div>
     </div>
@@ -28,3 +28,10 @@
 <h3 class="mt-3"> Formulario</h3>
 <pre>valid: {{miFormulario.value | json}}</pre>
 <pre>valid: {{miFormulario.valid}}</pre>
+<div class="row" *customIf=miFormulario.valid>
+    <div class="col">
+        <div class="alert alert-primary">
+            Todo OK
+        </div>
+    </div>
+</div>

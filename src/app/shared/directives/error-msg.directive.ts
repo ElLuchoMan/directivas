@@ -7,6 +7,7 @@ export class ErrorMsgDirective implements OnInit, OnChanges {
 
   private _color: string = 'red';
   private _mensaje: string = 'Campo requerido';
+  private _valido: boolean = false;
   htmlElement: ElementRef<HTMLElement>;
   @Input() set color(valor: string) {
     this._color = valor;
@@ -15,6 +16,14 @@ export class ErrorMsgDirective implements OnInit, OnChanges {
   @Input() set mensaje(valor: string) {
     this._mensaje = valor;
     this.setMensaje();
+  }
+  @Input() set valido(valor: boolean) {
+    this._valido = valor;
+    if (valor) {
+      this.htmlElement.nativeElement.classList.add('hidden');
+    } else {
+      this.htmlElement.nativeElement.classList.remove('hidden');
+    }
   }
   constructor(private el: ElementRef<HTMLElement>) {
     this.htmlElement = el;
